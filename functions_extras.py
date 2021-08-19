@@ -16,7 +16,7 @@ from sklearn.model_selection import train_test_split
 # In[2]:
 
 
-def criar_treino_teste(directory, percent_test):
+def criar_treino_teste(directory, percent_test, semente):
     print('Criando particionamento')
     for dir_t in ['test', 'train']:
         #Limpando pastas de trino e teste
@@ -30,7 +30,7 @@ def criar_treino_teste(directory, percent_test):
         files_cat = os.listdir(dir_cat)
 
         #Particionando os dados em treino e teste
-        train, test = train_test_split(files_cat, test_size = percent_test, random_state = 13)
+        train, test = train_test_split(files_cat, test_size = percent_test, random_state = semente)
         #Para treinamento
         dir_train = directory + 'train/' + cat
         os.mkdir(dir_train)
